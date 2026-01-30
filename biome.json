@@ -1,0 +1,85 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.3.13/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"includes": [
+			"src/**/*.{ts,tsx}"
+		]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineWidth": 80
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"useNodejsImportProtocol": "off",
+				"useAtIndex": "off",
+				"useImportType": "off"
+			},
+			"suspicious": {
+				"noExplicitAny": "error",
+				"noArrayIndexKey": "off",
+				"noShadowRestrictedNames": "off"
+			},
+			"correctness": {
+				"noUnusedVariables": "error",
+				"noUnusedPrivateClassMembers": "off",
+				"useExhaustiveDependencies": "warn",
+				"noUnusedImports": {
+					"level": "error",
+					"fix": "safe"
+				}
+			},
+			"complexity": {
+				"noUselessFragments": "off"
+			}
+		}
+	},
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
+	"javascript": {
+		"linter": {
+			"enabled": true
+		}
+	},
+	"overrides": [
+		{
+			"includes": [
+				"src/**/*.ts",
+				"src/**/*.tsx"
+			],
+			"formatter": {
+				"enabled": true,
+				"indentStyle": "tab",
+				"indentWidth": 2,
+				"lineWidth": 80
+			},
+			"linter": {
+				"rules": {
+					"correctness": {
+						"useExhaustiveDependencies": {
+							"level": "warn",
+							"fix": "none"
+						}
+					}
+				}
+			}
+		}
+	]
+}

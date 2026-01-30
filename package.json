@@ -1,0 +1,38 @@
+{
+	"name": "back_app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MyBulb/back_end_app.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/MyBulb/back_end_app/issues"
+	},
+	"homepage": "https://github.com/MyBulb/back_end_app#readme",
+	"dependencies": {
+		"@sendgrid/mail": "^8.1.6",
+		"axios": "^1.13.4",
+		"biome": "^0.3.3",
+		"cors": "^2.8.6",
+		"dotenv": "^17.2.3",
+		"express": "^5.2.1",
+		"ws": "^8.19.0"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.19",
+		"@types/express": "^5.0.6",
+		"@types/node": "^25.1.0",
+		"@types/ws": "^8.18.1",
+		"ts-node-dev": "^2.0.0",
+		"typescript": "^5.9.3"
+	}
+}
