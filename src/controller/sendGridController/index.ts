@@ -6,19 +6,23 @@ export class ClassSendGridController {
 
 	public sendEmailForMyBulb = async (req: Request, res: Response) => {
 		try {
-			const { email, name, ecole, post, message } = req.body;
-
-			if (!email || !name || !ecole || !post || !message) {
-				return res.status(400).json({ error: "Missing required fields" });
+			if (
+				!req.body.email ||
+				!req.body.name ||
+				!req.body.ecole ||
+				!req.body.post ||
+				!req.body.message
+			) {
+				throw new Error("Missing required fields");
 			}
-
+			const { email, name, ecole, post, message } = req.body;
 			const result = await this.service.sendEmailForMyBulb({
-				from: process.env.EMAIL_SENDER || "",
-				to: email,
-				subject: `${ecole}, ${name}, ${post}`,
+				from: process.env.EMAIL_SENDER || "", //expediteur
+				to: process.env.EMAIL_SENDER || "", //destinataire
+				subject: `${ecole}, ${name}, ${post} -> ${email}`,
+				replyTo: email,
 				body: message,
 			});
-
 			return res.status(200).json({ data: result });
 		} catch (error) {
 			console.error(error);

@@ -17,10 +17,11 @@ export class ClassSendGridService {
 		from: string;
 		to: string;
 		subject: string;
+		replyTo: string;
 		body: string;
 	}) {
-		const { from, to, subject, body } = data;
-		return await this.sendEmail({ from, to, subject, text: body });
+		const { from, to, subject, body, replyTo } = data;
+		return await this.sendEmail({ from, to, subject, text: body, replyTo });
 	}
 
 	private async sendEmail({
@@ -28,13 +29,25 @@ export class ClassSendGridService {
 		to,
 		subject,
 		text,
+		replyTo,
 	}: {
 		from: string;
 		to: string;
 		subject: string;
 		text: string;
+		replyTo?: string;
 	}) {
-		const [resp] = await sgMail.send({ from, to, subject, text });
+		console.log("from", from);
+		console.log("to", to);
+		console.log("subject", subject);
+		console.log("text", text);
+		const [resp] = await sgMail.send({
+			from,
+			to,
+			subject,
+			text,
+			replyTo: replyTo,
+		});
 		return resp.statusCode;
 	}
 }

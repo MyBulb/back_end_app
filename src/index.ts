@@ -11,7 +11,7 @@ const server = http.createServer(app);
 
 setupWebSocket(server);
 
-const PORT = Number(process.env.PORT ?? 3000);
+const PORT = Number(process.env.PORT ?? 8080);
 
 server.listen(PORT, () => {
 	console.info(
